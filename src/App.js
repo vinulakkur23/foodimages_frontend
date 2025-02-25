@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_BASE_URL = "https://foodimages-frontend.onrender.com"; // Replace with your actual Render backend URL
+const API_BASE_URL = "https://foodimages-api-test.onrender.com"; // Replace with your actual Render backend URL
 
 export default function ImageRating() {
   const [image, setImage] = useState(null);
