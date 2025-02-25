@@ -51,7 +51,12 @@ export default function ImageRating() {
       
       {image && (
         <>
-          <img src={image.url} alt="Random" className="max-w-md rounded-lg shadow-lg mt-4" />
+//          <img src={image.url} alt="Random" className="max-w-md rounded-lg shadow-lg mt-4" />
+			<img
+			  src={image.url}
+			  alt="Random"
+			  className="w-full max-w-md sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded-lg shadow-lg mt-4"
+			/>
           <div className="flex gap-2 mt-4">
             {[...Array(11).keys()].map((num) => (
               <button
