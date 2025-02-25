@@ -25,27 +25,27 @@ export default function ImageRating() {
 //    setLoading(false);
 //  };
 
-const fetchImage = async () => {
-  if (loading) return; //  Prevents duplicate API calls
-  
-  setLoading(true); //  Set loading state before making the request
-  setError(""); //  Reset any previous errors
-  
-  try {
-    const response = await axios.get(`${API_BASE_URL}/api/image`);
-    
-    if (!response.data || !response.data.url) {
-      throw new Error("Invalid image data received");
-    }
+	const fetchImage = async () => {
+	  if (loading) return; //  Prevents duplicate API calls
+	  
+	  setLoading(true); //  Set loading state before making the request
+	  setError(""); //  Reset any previous errors
+	  
+	  try {
+		const response = await axios.get(`${API_BASE_URL}/api/image`);
+		
+		if (!response.data || !response.data.url) {
+		  throw new Error("Invalid image data received");
+		}
 
-    setImage(response.data); // Successfully set the image
-  } catch (error) {
-    console.error("Error fetching image:", error);
-    setError("Failed to load image. Please try again.");
-  } finally {
-    setLoading(false); // Ensures loading is turned off after API call
-  }
-};
+		setImage(response.data); // Successfully set the image
+	  } catch (error) {
+		console.error("Error fetching image:", error);
+		setError("Failed to load image. Please try again.");
+	  } finally {
+		setLoading(false); // Ensures loading is turned off after API call
+	  }
+	};
 
 
 
