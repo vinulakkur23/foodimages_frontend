@@ -12,18 +12,36 @@ export default function ImageRating() {
     fetchImage();
   }, []);
 
-  const fetchImage = async () => {
-    setLoading(true);
-    setError("");
-    try {
-      const response = await axios.get(`${API_BASE_URL}/api/image`);
-      setImage(response.data);
-    } catch (error) {
-      console.error("Error fetching image:", error);
-      setError("Failed to load image. Please try again.");
-    }
-    setLoading(false);
-  };
+//  const fetchImage = async () => {
+//    setLoading(true);
+//    setError("");
+//    try {
+//      const response = await axios.get(`${API_BASE_URL}/api/image`);
+//      setImage(response.data);
+//    } catch (error) {
+//      console.error("Error fetching image:", error);
+//      setError("Failed to load image. Please try again.");
+//    }
+//    setLoading(false);
+//  };
+
+const fetchImage = async () => {
+  if (loading) return; // ✅ Prevents multiple calls while loading
+
+  setLoading(true);
+  setError("");
+  
+  try {
+    const response = await axios.get(`${API_BASE_URL}/api/image`);
+    setImage(response.data);
+  } catch (error) {
+    console.error("Error fetching image:", error);
+    setError("Failed to load image. Please try again.");
+  }
+
+  setLoading(false);
+};
+
 
   const submitRating = async (rating) => {
     if (!image) return;
@@ -51,7 +69,6 @@ export default function ImageRating() {
       
       {image && (
         <>
-//          <img src={image.url} alt="Random" className="max-w-md rounded-lg shadow-lg mt-4" />
 		  <img
 			  src={image.url}
 			  alt="Random"
