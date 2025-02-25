@@ -49,14 +49,17 @@
   margin: auto;
 }
 
+
 .responsive-image {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
+  width: 100%; /* Ensures full responsiveness */
+  max-width: 500px; /* Prevents images from becoming too large */
+  height: auto; /* Maintains aspect ratio */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   display: block;
   margin: 0 auto;
+  -webkit-backface-visibility: hidden; /* Safari fix */
+  -webkit-transform: translate3d(0, 0, 0); /* Fixes potential Safari rendering issues */
 }
 
 @media (max-width: 600px) {
