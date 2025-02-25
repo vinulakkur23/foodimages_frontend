@@ -57,7 +57,7 @@ export default function ImageRating() {
 		  <img
 			  src={image.url}
 			  alt="Random"
-			  className="responsive-image"
+			  className=".responsive-image"
 		  />
           <div className="flex gap-2 mt-4">
             {[...Array(11).keys()].map((num) => (
