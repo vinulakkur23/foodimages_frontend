@@ -60,7 +60,7 @@ export default function ImageRating() {
   return (
     <div className="mobile-container">
       <h1 className="instruction-text">
-        If your friend posted this photo of some food on Instagram, how impressed, from a 1 - 10, would you be by the photo they took. Please try to ignore the meal itself and the resolution of the photo.
+        Your friend posted this photo of their meal on Instagram. How impressed (from a 1 - 10) are you of the photo they took? Remember we have different food preferences, and try to ignore image resolution.
       </h1>
       
       {loading && <p className="status-text">Loading...</p>}
