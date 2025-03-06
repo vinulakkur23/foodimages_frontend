@@ -41,6 +41,22 @@ export default function ImageRating() {
     }
   };
 
+  const handleNotAMeal = async () => {
+    if (!image) return;
+    try {
+      await axios.post(`${API_BASE_URL}/api/rate`, {
+        imageId: image.id,
+        rating: -1, // Using -1 to indicate "Not a meal"
+      });
+    
+      setImage(null);
+      fetchImage();
+    } catch (error) {
+      console.error("Error submitting not a meal:", error);
+      setError("Failed to submit. Please try again.");
+    }
+  };
+
   return (
     <div className="mobile-container">
       <h1 className="instruction-text">
@@ -58,16 +74,22 @@ export default function ImageRating() {
             className="responsive-image"
           />
           <div className="rating-buttons">
-            {[...Array(11).keys()].map((num) => (
+            {[...Array(10).keys()].map((num) => (
               <button
                 key={num}
-                onClick={() => submitRating(num)}
+                onClick={() => submitRating(num + 1)}
                 className="rating-button"
               >
-                {num}
+                {num + 1}
               </button>
             ))}
           </div>
+          <button 
+            onClick={handleNotAMeal}
+            className="not-meal-button"
+          >
+            Not a meal
+          </button>
         </>
       )}
     </div>
