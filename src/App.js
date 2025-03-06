@@ -47,7 +47,7 @@ export default function ImageRating() {
 
   return (
     <div className="flex flex-col items-center p-6">
-      <h1 className="text-xl font-bold">Rate This Image</h1>
+      <h1 className="text-xl font-bold">If your friend posted this photo of some food on Instagram, how impressed, from a 1 - 10, would you be by the photo they took. Please try to ignore the meal itself and the resolution of the photo. </h1>
       
       {loading && <p>Loading...</p>}
       {error && <p className="text-red-500">{error}</p>}
