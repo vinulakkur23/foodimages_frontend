@@ -1,18 +1,15 @@
 .App {
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,11 +20,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
   color: #61dafb;
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -37,51 +32,106 @@
   }
 }
 
-/* Center content on all devices */
-.container {
+/* Mobile optimized container */
+.mobile-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   width: 100%;
   max-width: 600px;
   margin: auto;
 }
 
+/* Very small instruction text for mobile */
+.instruction-text {
+  font-size: 12px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* Status text (loading/error) */
+.status-text {
+  font-size: 11px;
+  margin: 5px 0;
+}
+
+.status-text.error {
+  color: #f44336;
+}
 
 .responsive-image {
-  width: 100%; /* Ensures full responsiveness */
-  max-width: 500px; /* Prevents images from becoming too large */
-  height: auto; /* Maintains aspect ratio */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   display: block;
-  margin: 0 auto;
-  -webkit-backface-visibility: hidden; /* Safari fix */
-  -webkit-transform: translate3d(0, 0, 0); /* Fixes potential Safari rendering issues */
+  margin: 0 auto 8px;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
-@media (max-width: 600px) {
-	.responsive-image {
-		max-width: 90%;
-	}
+/* Rating buttons container */
+.rating-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 8px;
 }
 
-/* Make buttons easier to tap on mobile */
-button {
-  padding: 12px 16px;
-  font-size: 18px;
-  border-radius: 5px;
+/* Small rating buttons for mobile */
+.rating-button {
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 4px;
   cursor: pointer;
   transition: background 0.3s;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  min-width: 30px;
 }
 
-/* Style buttons for mobile screens */
+.rating-button:hover {
+  background-color: #1d4ed8;
+}
+
 @media (max-width: 600px) {
-  button {
-    font-size: 16px;
-    padding: 10px 14px;
-    width: 100%;  /* Make buttons full-width on smaller screens */
+  .responsive-image {
+    max-width: 90%;
+    margin-bottom: 6px;
+  }
+  
+  .rating-buttons {
+    gap: 3px;
+    margin-top: 6px;
+  }
+  
+  .rating-button {
+    padding: 5px 8px;
+    font-size: 10px;
+    min-width: 25px;
+  }
+  
+  .instruction-text {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+}
+
+/* For very small mobile screens */
+@media (max-width: 320px) {
+  .instruction-text {
+    font-size: 10px;
+  }
+  
+  .rating-button {
+    padding: 4px 6px;
+    font-size: 9px;
+    min-width: 20px;
   }
 }
